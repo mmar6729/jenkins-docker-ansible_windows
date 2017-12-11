@@ -1,0 +1,14 @@
+- hosts: localhost
+  remote_user: vagrant
+  become: yes
+
+  pre_tasks:
+    - name: update the apt cache
+      apt: update_cache=yes
+      sudo: yes
+
+  roles:
+    - java
+    - docker
+    - registry
+    - jenkins
